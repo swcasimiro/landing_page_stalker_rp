@@ -108,6 +108,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 
@@ -183,8 +184,117 @@
             <a target="blank_" href="{{launcher.file.url}}" download="installer.exe" class="step-btn next">Скачать Launcher v{{launcher.name}}, {{launcher.file.size|filesizeformat}}</a>
             <a target="blank_" href="{{launcher.cache.url}}" download="installer.exe" class="step-btn next">Скачать Cache, {{launcher.cache.size|filesizeformat}}</a>
         </div>
+
+        <br>
         <br>
 
+        <div class="news-slider">
+        <div class="slider-container">
+            <div class="slider-track">
+                <!-- Карточка 1 -->
+                <div class="news-card">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Новый курс по JavaScript">
+                    <div class="news-content">
+                        <h3><label class="new-btn" data-next="2">NEW</label> Тест </h3>
+                        <p>Тест</p>
+                        <div class="step-actions">
+                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="news-card">
+                    <img src="https://sun9-21.userapi.com/impg/0-ejMCh4F9J4Pp7MCuDefvLPueHlpfmv5rEYGQ/rjcnjE0odkA.jpg?size=477x600&quality=95&sign=6708a53f2cd899d174fa722cb018f006&type=album" alt="Искусственный интеллект в 2024">
+                    <div class="news-content">
+                        <h3>Тест</h3>
+                        <p>Тест</p>
+                        <div class="step-actions">
+                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="news-card">
+                    <img src="https://sun9-24.userapi.com/impg/bCisBZocu34mSRvxQeh3zq4YUnWKd5yoIoYJpw/SyJE86DbzDc.jpg?size=604x403&quality=95&sign=7aaddf937c9cb7c5fa2e5722932c660a&type=album" alt="Лучшие фреймворки 2024">
+                    <div class="news-content">
+                        <h3>Тест</h3>
+                        <p>Тест</p>
+                        <div class="step-actions">
+                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="news-card">
+                    <img src="https://sun9-16.userapi.com/impg/m9kFjHRLFq_uRF-W7wKIMMjSWJHkcjG91KM_Hg/49GV1xlfRfo.jpg?size=945x1080&quality=95&sign=0f0f5fb96e80315ee6aec1a1ebaf7e65&type=album" alt="Как ускорить загрузку сайта">
+                    <div class="news-content">
+                        <h3>Тест</h3>
+                        <p>Тест</p>
+                        <div class="step-actions">
+                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="news-card">
+                    <img src="https://sun9-5.userapi.com/impf/c636325/v636325208/dfe5/qifq1uqH-IE.jpg?size=600x800&quality=96&sign=a7df916b26aea2c82d6c609081416db5&type=album" alt="Веб-дизайн в 2024">
+                    <div class="news-content">
+                        <h3>Тест</h3>
+                        <p>Тест</p>
+                        <div class="step-actions">
+                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="prev-btn">❰</button>
+            <button class="next-btn">❱</button>
+        </div>
+    </div>
 
     </section>
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const sliderTrack = document.querySelector('.slider-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentPosition = 0;
+
+    // Обновление позиции слайдера
+    const updateSlider = () => {
+        const cardWidth = document.querySelector('.news-card').offsetWidth + 20;
+        sliderTrack.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+    };
+
+    // Кнопка "Назад"
+    prevBtn.addEventListener('click', () => {
+        if (currentPosition > 0) {
+            currentPosition--;
+            updateSlider();
+        }
+    });
+
+    // Кнопка "Вперед"
+    nextBtn.addEventListener('click', () => {
+        const cards = document.querySelectorAll('.news-card');
+        const maxPosition = cards.length - 3;
+        if (currentPosition < maxPosition) {
+            currentPosition++;
+            updateSlider();
+        }
+    });
+
+    // Адаптация при изменении размера окна
+    window.addEventListener('resize', updateSlider);
+});
+</script>
+
+
 {% endblock %}

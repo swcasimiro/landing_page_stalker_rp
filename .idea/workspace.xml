@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a38a59fa-e65b-4b4c-8331-64b65cb42ede" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/reuqirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/reuqirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/reuqirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/static/landing_page/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/config/static/landing_page/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/templates/landing_page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/landing_page/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/templates/news/news-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/news/news-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/templates/news/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/news/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "sw",
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
