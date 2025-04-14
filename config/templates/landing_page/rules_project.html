@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %} Правила проекта{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'landing_page/css/rules_project_styles.css'%}" type="text/css">
+
+
+<style>
+    a {
+        text-decoration: None;
+    }
+
+    ul {
+        margin-left:37px;
+    }
+</style>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>ИГРОВЫЕ ПРАВИЛА</h1>
+            <p>Список актуальных правил STALKER ROLE PLAY</p>
+        </div>
+    </section>
+
+<section class="features" id="features">
+    <br>
+    <br>
+
+
+
+    <style>
+.copy-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #3a4f43;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+</style>
+
+<div class="copy-notification" id="copyNotification"></div>
+
+<script>
+function showNotification(message) {
+  const notification = document.getElementById('copyNotification');
+  notification.textContent = message;
+  notification.style.display = 'block';
+
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const copyLinks = document.querySelectorAll('.copy-link');
+
+  copyLinks.forEach(link => {
+    link.addEventListener('click', async function(e) {
+      e.preventDefault();
+      const hiddenText = this.getAttribute('data-hidden-text');
+
+      try {
+        await navigator.clipboard.writeText(hiddenText);
+        showNotification('Вы скопировали ссылку на правило');
+
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = hiddenText;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showNotification('Ссылка скопирована');
+      }
+    });
+  });
+});
+</script>
+<style>
+    .hero {
+       padding: 180px 0 100px;
+       background: url('{% static 'landing_page/img/fon_header_rules.png' %}') no-repeat center center;
+       background-size: cover;
+       position: fixed;
+       text-align: center;
+       position: relative;
+       overflow: hidden;
+    }
+</style>
+    {% for el in rules_project %}
+     <div class="card" id="rules-{{ el.id}}">
+        <div class="card-content">
+            <div class="step-header">
+                <h3 class="step-title"><a class="text-header copy-link" data-hidden-text="http://127.0.0.1:8000/rules_project/#rules-{{el.id}}" href="#rules-{{ el.id }}">{{ el.id}}. {{ el.name_rules}}</a></h3>
+            </div>
+            <label class="step-description">
+                {{ el.rules_description|safe }}
+            </label>
+            </div>
+        </div>
+    <br>
+    <br>
+    {% endfor %}
+</section>
+
+{% endblock %}

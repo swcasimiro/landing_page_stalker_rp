@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %} STALKER ROLE PLAY {% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'landing_page/css/styles.css'%}" type="text/css">
+
+<style>
+    .hero {
+       padding: 180px 0 100px;
+       background: url('{% static 'landing_page/img/fon_header_2.png' %}') no-repeat center center;
+       background-size: cover;
+       position: fixed;
+       text-align: center;
+       position: relative;
+       overflow: hidden;
+    }
+</style>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>ИГРАЙ В САМЫЙ ИНТЕРЕСНЫЙ ПРОЕКТ GTA SA-MP</h1>
+            <p>Окунись в атмосферу Чернобыльской Зоны Отчуждения и насладись качественной ролевой игрой.</p>
+            <div class="hero-buttons">
+                <a href="#installation" class="btn btn-accent">Регистрация</a>
+                <a href="#features" class="btn btn-outline">Авторизация</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Уникальные возможности</h2>
+                <p>Игровой проект в GTA San Andreas с UCP регистрацией и сеттингом игры S.T.A.L.K.E.R., версия SAMP 0.3DL.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+
+                   <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
+                            <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+                        </svg>
+                    </div>
+
+                    <p>Наш проект непрерывно функционирует с 2021 года, мы известны своей выслугой лет, проверенной
+                        честью и верностью членов команды проекта. Слаженная работа помогает нам развиваться, делать
+                        сервер все лучше.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                            <path d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/>
+                        </svg>
+                    </div>
+
+                    <p>Мы ставим перед собой планку Hard RP сервера, заставляющего ваших персонажей встречаться на своем
+                        пути со взлетами и падениями, которые в праве творить собственную историю, влиять на любые
+                        игровые события.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+                            <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                        </svg>
+                    </div>
+
+
+                    <p>Кастомные модели скинов, мутантов и оружия. Наши модмейкеры работают, не покладая рук, чтобы Вам
+                        было максимально комфортно погрузиться в реалии Чернобыльской Зоны Отчуждения. Возможность залива
+                        своих собственных работ, чтобы подчеркнуть уникальность и неповторимость именно вашего персонажа. </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+                        </svg>
+                    </div>
+
+                    <p> Насыщенные игровые локации, которые оставят на каждом несгладимое впечатление.  К наполнению
+                        каждой локации мы подходим индивидуально, стараясь создать максимально наполненные точки интереса.</p>
+                </div>
+                <div class="feature-card">
+                   <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                            <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                        </svg>
+                    </div>
+
+                    <p>Разносторонний сюжет, доступный каждому игроку, желающему реализовать свой потенциал в любой
+                        ветви сюжета. Неожиданные повороты, предательство и борьба с
+                        неизведанным — это и многое другое Вам предстоит повстречать на своем пути. </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+                        </svg>
+                    </div>
+
+                    <p>Переработанная игровая механика с уникальными игровыми системами, которые станут приятным
+                        дополнением при игре на нашем проекте. Мы продолжаем по сей день совершенствоваться, внедряя
+                        новые системы, чтобы сделать ваш игровой опыт несравнимым и уникальным.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<style>
+   .installation {
+      padding: 100px 0;
+      background: url('{% static 'landing_page/img/fon_download.png' %}') no-repeat center center;
+   }
+</style>
+    <!-- Installation -->
+    <section class="installation" id="installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Как начать игру на STALKER ROLE PLAY?</h2>
+                <p>Ознакомьтесь с пошаговой инструкцией, если вы у нас впервые. </p>
+            </div>
+            <div class="steps-container">
+                <div class="steps-nav">
+                    <div class="step-nav-item active" data-step="1">1</div>
+                    <div class="step-nav-item" data-step="2">2</div>
+                    <div class="step-nav-item" data-step="3">3</div>
+                </div>
+                <div class="steps-content">
+                    <div class="step active" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3 class="step-title">Ознакомьтесь с правилами проекта.</h3>
+                        </div>
+                        <p class="step-description">В случае, если вы впервые на сервере с UCP-регистрацией.
+                        В первую очередь ознакомьтесь с правилами нашего проекта. Это вам поможет в прохождение
+                        последующий шагов.</p>
+                        <div class="step-actions">
+                            <button class="step-btn next" data-next="2">Далее</button>
+                        </div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3 class="step-title">Пройдите UCP-регистрацию</h3>
+                        </div>
+                        <p class="step-description">Перед началом игры, Вам предстоит пройти UCP-регистрацию. С помощью
+                        этого функционала мы убеждаемся в том, что человек ознакомлен с правилами нашего сервера. Дабы
+                        поддерживать должный уровень игры.</p>
+                        <div class="step-actions">
+                            <button class="step-btn prev" data-prev="1">Назад</button>
+                            <button class="step-btn next" data-next="3">Далее</button>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3 class="step-title">Установите наш лаунчер</h3>
+                        </div>
+                        <p class="step-description">Вам остается, лишь ожидать одобрения вашего аккаунта и скачать наш
+                        лаунчер, дабы вы могли начать игру. На наш сервер можно зайти только с помощью него, дабы
+                        обезопасить вас от читеров и сделать ваш старт куда удобнее.</p>
+                        <div class="step-actions">
+                            <button class="step-btn prev" data-prev="2">Назад</button>
+                            <A class="step-btn next" target="blank_" href="{{launcher.file.url}}" download="installer.exe">Скачать</A>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta" id="download">
+        <div class="container cta-content">
+            <h2>Готовы начать?</h2>
+            <p>Скачайте STALKER ROLE-PLAY Launcher прямо сейчас и окунитесь в атмосферу Чернобыльской зоны отчуждения.</p>
+
+            <a target="blank_" href="{{launcher.file.url}}" download="installer.exe" class="step-btn next">Скачать Launcher v{{launcher.name}}, {{launcher.file.size|filesizeformat}}</a>
+            <a target="blank_" href="{{launcher.cache.url}}" download="installer.exe" class="step-btn next">Скачать Cache, {{launcher.cache.size|filesizeformat}}</a>
+        </div>
+        <br>
+
+
+    </section>
+{% endblock %}
