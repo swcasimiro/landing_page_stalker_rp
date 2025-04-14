@@ -830,3 +830,133 @@
                 gap: 1rem;
             }
         }
+
+
+
+
+
+.news-slider {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.slider-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.news-card {
+    min-width: calc(33.333% - 20px);
+    margin: 10px;
+    background: #28302c;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 15px;
+}
+
+.news-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: white;
+    text-align:left;
+}
+
+.news-content p {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin: 0 0 15px;
+    text-align: left;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background 0.3s;
+}
+
+.read-more:hover {
+    background: #2980b9;
+}
+
+.slider-nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.slider-nav button {
+    background: #3a423d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.slider-nav button:hover {
+    background: #212623;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .news-card {
+        min-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .news-card {
+        min-width: calc(100% - 20px);
+    }
+}
+
+.new-btn {
+    padding: 3px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: #3d5444;
+    color: white;
+}

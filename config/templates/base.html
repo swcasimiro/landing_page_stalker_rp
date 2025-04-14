@@ -21,9 +21,10 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="{% url 'rules_project' %}">Правила проекта</a></li>
+                    <li><a href="{% url 'rules_project' %}">Новости</a></li>
                     <li><a href="https://forum.stalker-rp.net/">Форум</a></li>
                     <li><a href="#installation">UCP</a></li>
-                    <li><a href="#installation">Stalker-Helper</a></li>
+                    <li><a href="#installation">Soon</a></li>
                     <li><a href="#"> <img alt="online" class="online-but" loading="lazy" width="10" height="10" decoding="async" data-nimg="1" style="color:transparent" src="https://www.upload.ee/image/17956016/___________-1.png"> {{ online }}/{{ peak_online }}</a></li>
                 </ul>
             </nav>
@@ -66,9 +67,6 @@
             </div>
         </div>
     </footer>
-
-
-
 
     <script>
         // Анимация шапки при скролле
@@ -113,7 +111,7 @@
                 });
             });
 
-            // Кнопки "Далее"
+            // Кнопки впереде
             nextButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const nextStep = this.getAttribute('data-next');
@@ -121,7 +119,7 @@
                 });
             });
 
-            // Кнопки "Назад"
+            // Кнопки далее
             prevButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const prevStep = this.getAttribute('data-prev');
