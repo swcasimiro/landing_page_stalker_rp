@@ -1,10 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %} Новости{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'news/css/styles.css'%}" type="text/css">
 
-</body>
-</html>
+
+<style>
+    a {
+        text-decoration: None;
+    }
+
+    ul {
+        margin-left:37px;
+    }
+</style>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Новости проекта</h1>
+            <p>Самые актуальные новости проекта</p>
+        </div>
+    </section>
+
+<section class="features" id="features">
+    <br>
+    <br>
+
+
+
+    <style>
+.copy-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #3a4f43;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+</style>
+
+<div class="copy-notification" id="copyNotification"></div>
+
+
+
+
+<style>
+    .hero {
+       padding: 180px 0 100px;
+       background: url('{% static 'landing_page/img/fon_header_rules.png' %}') no-repeat center center;
+       background-size: cover;
+       position: fixed;
+       text-align: center;
+       position: relative;
+       overflow: hidden;
+    }
+</style>
+
+
+<div class="news-container">
+    <div class="news-list">
+            <!-- Новость 1 -->
+            <div class="news-card">
+                <span class="new-badge">NEW</span>
+                <div class="news-image-container">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Итоги финансового квартала" class="news-image">
+                </div>
+                <div class="news-content">
+                    <div>
+                        <span class="news-category">forum</span>
+                        <div class="news-header">
+                            <h2 class="news-title">Запуск нового продукта</h2>
+                            <span class="news-date"><i class="far fa-clock"></i> Сегодня</span>
+                        </div>
+                        <p class="news-excerpt">Компания представила инновационное решение для цифрового маркетинга, которое изменит подход к аналитике.</p>
+                    </div>
+                         <div class="step-actions">
+                            <a href="{% url 'news-detail' %}" class="step-btn next" data-next="2">Читать далее</a>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Новость 2 -->
+            <div class="news-card">
+                <span class="new-badge">NEW</span>
+                <div class="news-image-container">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Итоги финансового квартала" class="news-image">
+                </div>
+                    <div class="news-content">
+                    <div>
+                        <span class="news-category">web</span>
+                        <div class="news-header">
+                            <h2 class="news-title">Итоги финансового квартала</h2>
+                            <span class="news-date"><i class="far fa-clock"></i> Вчера</span>
+                        </div>
+                        <p class="news-excerpt">Крупнейшие компании отрасли опубликовали отчеты, показывающие рост на 15% по сравнению с предыдущим периодом.</p>
+                    </div>
+                    <div class="step-actions">
+                            <a href="{% url 'news-detail' %}" class="step-btn next" data-next="2">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Новость 3 -->
+            <div class="news-card">
+                <div class="news-image-container">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Итоги финансового квартала" class="news-image">
+                </div>
+                <div class="news-content">
+                    <div>
+                        <span class="news-category">web</span>
+                        <span class="news-category">forum</span>
+                        <span class="news-category">server</span>
+                        <div class="news-header">
+                            <h2 class="news-title">Тенденции дизайна 2023</h2>
+                            <span class="news-date"><i class="far fa-clock"></i> 2 дня назад</span>
+                        </div>
+                        <p class="news-excerpt">Эксперты выделили 5 главных трендов в веб-дизайне, которые будут доминировать в этом году.</p>
+                    </div>
+                    <div class="step-actions">
+                            <a href="{% url 'news-detail' %}" class="step-btn next" data-next="2">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Новость 4 -->
+            <div class="news-card">
+                <div class="news-image-container">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Итоги финансового квартала" class="news-image">
+                </div>
+                <div class="news-content">
+                    <div>
+                        <span class="news-category">server</span>
+                        <div class="news-header">
+                            <h2 class="news-title">Конференция разработчиков</h2>
+                            <span class="news-date"><i class="far fa-clock"></i> 3 дня назад</span>
+                        </div>
+                        <p class="news-excerpt">Ежегодное мероприятие соберет более 5000 специалистов со всего мира для обмена опытом.</p>
+                    </div>
+                    <div class="step-actions">
+                            <a href="{% url 'news-detail' %}" class="step-btn next" data-next="2">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Новость 5 -->
+            <div class="news-card">
+                <div class="news-image-container">
+                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Итоги финансового квартала" class="news-image">
+                </div>
+                <div class="news-content">
+                    <div>
+                        <span class="news-category">forum</span>
+                        <div class="news-header">
+                            <h2 class="news-title">Обновление платформы</h2>
+                            <span class="news-date"><i class="far fa-clock"></i> 5 дней назад</span>
+                        </div>
+                        <p class="news-excerpt">Вышло крупное обновление популярной SaaS-платформы с новыми функциями для пользователей.</p>
+                    </div>
+                    <div class="step-actions">
+                            <a href="{% url 'news-detail' %}" class="step-btn next" data-next="2">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+
+
+</section>
+
+{% endblock %}

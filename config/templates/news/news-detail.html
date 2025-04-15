@@ -1,10 +1,480 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %} Новости{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'news/css/styles.css'%}" type="text/css">
 
-</body>
-</html>
+
+
+
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .article-container {
+            padding: 50px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .article-category {
+            display: inline-block;
+            background-color: var(--highlight);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .article-meta span {
+            margin: 0 10px;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 2px solid var(--highlight);
+        }
+
+        .article-hero {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .article-hero:hover {
+            transform: scale(1.01);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+        }
+
+        .article-content h2 {
+            font-size: 28px;
+            margin: 40px 0 20px;
+            color: var(--highlight);
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--highlight);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .tag {
+            background-color: #46524c;
+            color: #28302c;
+            padding: 5px 15px;
+            border-radius: 8px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background-color: #28302c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .article-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn {
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .action-btn i {
+            margin-right: 8px;
+        }
+
+        .action-btn:hover {
+            background-color: var(--highlight);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .related-articles {
+            margin: 80px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--highlight);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            color: var(--highlight);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .card-meta i {
+            margin-right: 5px;
+        }
+
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--highlight);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: #131614;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .article-title {
+                font-size: 32px;
+            }
+
+            .article-hero {
+                height: 300px;
+            }
+
+            .article-content {
+                font-size: 16px;
+            }
+
+            .article-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<BR>
+<BR>
+    <main class="container">
+        <article class="article-container">
+            <br>
+            <div class="article-header">
+                <h1 class="article-title">The Future of Artificial Intelligence in Everyday Life</h1>
+                <div class="article-meta">
+                    <div class="article-author">
+                        <img src="https://sun9-34.userapi.com/impg/1zVZUQavanflARqkLm6bFJITQ3vEBR6eT-4QjQ/FNqtm--Iyyo.jpg?size=600x600&quality=95&sign=664d396fe7e1104afe4129fe1aa3e47b&type=album" alt="Author" class="author-avatar">
+                        <span>STALKER ROLE PLAY</span>
+                    </div>
+                    <span><i class="far fa-clock"></i> 5 min read</span>
+                    <span><i class="far fa-calendar-alt"></i> June 15, 2023</span>
+                    <span><i class="far fa-eye"></i> 2.4K views</span>
+                </div>
+            </div>
+
+            <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Article Hero" class="article-hero">
+
+            <div class="article-content">
+                <p>Artificial Intelligence (AI) is no longer a futuristic concept confined to science fiction. It has become an integral part of our daily lives, transforming how we work, communicate, and even think. From virtual assistants to predictive algorithms, AI's influence is growing at an unprecedented rate.</p>
+
+                <h2>The Rise of Personal AI Assistants</h2>
+                <p>One of the most visible applications of AI is in personal assistants like Siri, Alexa, and Google Assistant. These tools have evolved from simple voice recognition systems to sophisticated platforms that can manage schedules, control smart homes, and even engage in meaningful conversations.</p>
+
+                <blockquote>
+                    "AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies." — Sam Altman, OpenAI
+                </blockquote>
+
+                <p>The next generation of these assistants will be context-aware, anticipating needs before they're expressed and offering proactive suggestions based on behavior patterns and preferences.</p>
+
+                <img src="https://sun9-24.userapi.com/impg/bCisBZocu34mSRvxQeh3zq4YUnWKd5yoIoYJpw/SyJE86DbzDc.jpg?size=604x403&quality=95&sign=7aaddf937c9cb7c5fa2e5722932c660a&type=album" alt="AI Assistant">
+
+                <h2>AI in Healthcare</h2>
+                <p>The healthcare sector is experiencing an AI revolution. Machine learning algorithms can now analyze medical images with accuracy rivaling human experts, predict patient outcomes, and assist in drug discovery.</p>
+
+                <p>Wearable devices powered by AI monitor vital signs in real-time, alerting users and healthcare providers to potential issues before they become critical. This proactive approach to health management could significantly reduce hospitalizations and improve quality of life.</p>
+
+                <h2>Ethical Considerations</h2>
+                <p>As AI becomes more pervasive, ethical questions emerge. Issues of privacy, bias in algorithms, and job displacement need careful consideration. The development of ethical AI frameworks is crucial to ensure these technologies benefit society as a whole.</p>
+
+                <p>Transparency in AI decision-making processes and robust data protection measures will be key to maintaining public trust as these technologies become more integrated into sensitive areas of our lives.</p>
+
+                <div class="article-tags">
+                    <span class="tag">#ArtificialIntelligence</span>
+                    <span class="tag">#MachineLearning</span>
+                    <span class="tag">#FutureTech</span>
+                    <span class="tag">#Innovation</span>
+                    <span class="tag">#DigitalTransformation</span>
+                </div>
+
+            </div>
+        </article>
+
+
+    </main>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Like button functionality
+        const likeBtn = document.querySelector('.like-btn');
+        const likeCount = document.querySelector('.like-count');
+        let liked = false;
+        let count = 1200;
+
+        likeBtn.addEventListener('click', () => {
+            if (!liked) {
+                liked = true;
+                count++;
+                likeCount.textContent = formatNumber(count);
+                likeBtn.innerHTML = '<i class="fas fa-thumbs-up"></i> Liked <span class="like-count">' + formatNumber(count) + '</span>';
+                likeBtn.style.backgroundColor = 'var(--highlight)';
+            } else {
+                liked = false;
+                count--;
+                likeCount.textContent = formatNumber(count);
+                likeBtn.innerHTML = '<i class="far fa-thumbs-up"></i> Like <span class="like-count">' + formatNumber(count) + '</span>';
+                likeBtn.style.backgroundColor = 'var(--accent)';
+            }
+        });
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num;
+        }
+
+        // Article card hover effect
+        const articleCards = document.querySelectorAll('.article-card');
+
+        articleCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const image = card.querySelector('.card-image');
+                image.style.transform = 'scale(1.05)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                const image = card.querySelector('.card-image');
+                image.style.transform = 'scale(1)';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+{% endblock %}
