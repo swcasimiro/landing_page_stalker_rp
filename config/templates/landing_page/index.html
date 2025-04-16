@@ -139,7 +139,7 @@
                         </div>
                         <p class="step-description">В случае, если вы впервые на сервере с UCP-регистрацией.
                         В первую очередь ознакомьтесь с правилами нашего проекта. Это вам поможет в прохождение
-                        последующий шагов.</p>
+                        последующих шагов.</p>
                         <div class="step-actions">
                             <button class="step-btn next" data-next="2">Далее</button>
                         </div>
@@ -191,65 +191,25 @@
         <div class="news-slider">
         <div class="slider-container">
             <div class="slider-track">
-                <!-- Карточка 1 -->
+            {% if news.count > 3  %}
+                {% for el in news %}
                 <div class="news-card">
-                    <img src="https://sun9-7.userapi.com/impg/4GuCStfmrnmp2b7yNb7UqC9VB4i5HMYlzFfVTQ/vRUKpOom86k.jpg?size=858x536&quality=95&sign=7d76b89f57e640f11c4af00f6596600d&type=album" alt="Новый курс по JavaScript">
+                    <img src="{{ el.image.url }}" alt="Новый курс по JavaScript">
                     <div class="news-content">
-                        <h3><label class="new-btn" data-next="2">NEW</label> Тест </h3>
-                        <p>Тест</p>
-                        <div class="step-actions">
-                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
+                        <h3>
+                            {% if el.is_new %}
+                            <label class="new-btn" data-next="2">NEW</label>
+                            {% endif %}
+                            {{ el.title }} </h3>
 
-                <!-- Карточка 2 -->
-                <div class="news-card">
-                    <img src="https://sun9-21.userapi.com/impg/0-ejMCh4F9J4Pp7MCuDefvLPueHlpfmv5rEYGQ/rjcnjE0odkA.jpg?size=477x600&quality=95&sign=6708a53f2cd899d174fa722cb018f006&type=album" alt="Искусственный интеллект в 2024">
-                    <div class="news-content">
-                        <h3>Тест</h3>
-                        <p>Тест</p>
+                        <p>{{ el.description|truncatechars:110 }}</p>
                         <div class="step-actions">
-                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
+                            <a href="{{ el.get_absolute_url }}" class="step-btn next" data-next="2">Читать далее</a>
                         </div>
                     </div>
                 </div>
+               {% endfor %}
 
-                <!-- Карточка 3 -->
-                <div class="news-card">
-                    <img src="https://sun9-24.userapi.com/impg/bCisBZocu34mSRvxQeh3zq4YUnWKd5yoIoYJpw/SyJE86DbzDc.jpg?size=604x403&quality=95&sign=7aaddf937c9cb7c5fa2e5722932c660a&type=album" alt="Лучшие фреймворки 2024">
-                    <div class="news-content">
-                        <h3>Тест</h3>
-                        <p>Тест</p>
-                        <div class="step-actions">
-                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 4 -->
-                <div class="news-card">
-                    <img src="https://sun9-16.userapi.com/impg/m9kFjHRLFq_uRF-W7wKIMMjSWJHkcjG91KM_Hg/49GV1xlfRfo.jpg?size=945x1080&quality=95&sign=0f0f5fb96e80315ee6aec1a1ebaf7e65&type=album" alt="Как ускорить загрузку сайта">
-                    <div class="news-content">
-                        <h3>Тест</h3>
-                        <p>Тест</p>
-                        <div class="step-actions">
-                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 5 -->
-                <div class="news-card">
-                    <img src="https://sun9-5.userapi.com/impf/c636325/v636325208/dfe5/qifq1uqH-IE.jpg?size=600x800&quality=96&sign=a7df916b26aea2c82d6c609081416db5&type=album" alt="Веб-дизайн в 2024">
-                    <div class="news-content">
-                        <h3>Тест</h3>
-                        <p>Тест</p>
-                        <div class="step-actions">
-                            <a href="#" class="step-btn next" data-next="2">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="slider-nav">
@@ -257,7 +217,7 @@
             <button class="next-btn">❱</button>
         </div>
     </div>
-
+{% endif %}
     </section>
 <script>
 

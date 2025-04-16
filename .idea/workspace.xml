@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a38a59fa-e65b-4b4c-8331-64b65cb42ede" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/stalker_landing_page.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stalker_landing_page.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/landing_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/landing_page/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/news/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/news/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/reuqirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/static/landing_page/css/policy_rules_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/config/static/landing_page/css/policy_rules_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/static/landing_page/css/rules_project_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/config/static/landing_page/css/rules_project_styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/static/landing_page/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/config/static/landing_page/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/static/news/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/config/static/news/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/templates/landing_page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/landing_page/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/templates/news/news-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/config/templates/news/news-detail.html" afterDir="false" />

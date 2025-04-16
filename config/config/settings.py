@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'ckeditor',
     'django_ckeditor_5',
     'ckeditor_uploader',
     'landing_page',
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -252,15 +254,18 @@ customColorPalette = [
     ]
 
 CKEDITOR_5_CUSTOM_CSS = 'path_to.css' # optional
+
 CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage" # optional
+
+
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': {
             'items': ['heading', '|', 'bold', 'italic', 'link',
                       'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
                     }
-
     },
+
     'extends': {
         'blockToolbar': [
             'paragraph', 'heading1', 'heading2', 'heading3',
@@ -276,6 +281,7 @@ CKEDITOR_5_CONFIGS = {
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                     'insertTable',
                     ],
+
             'shouldNotGroupWhenFull': True
         },
         'image': {
@@ -321,6 +327,8 @@ CKEDITOR_5_CONFIGS = {
 }
 
 
+
+
 # Define a constant in settings.py to specify file upload permissions
 CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
 CKEDITOR_UPLOAD_PATH = 'ck-uploads/'
@@ -330,9 +338,9 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = False
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
