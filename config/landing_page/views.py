@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from samp_client.client import SampClient
 from .models import Launcher, RulesProject
+from news.models import News
 
 
 def index(request):
@@ -10,10 +11,13 @@ def index(request):
 
     launcher = Launcher.objects.first()
 
+    news = News.objects.filter(is_published=True).prefetch_related('tags').order_by('-created_at')[:5]
+
     context = {
         'online': info.players,
         'peak_online': info.max_players,
         'launcher': launcher,
+        'news': news
     }
 
     return render(request,'landing_page/index.html', context)

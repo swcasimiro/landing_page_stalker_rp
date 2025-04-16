@@ -660,10 +660,32 @@
             }
         }
 
+        .menu-toggle {
+            display: none; /* Скрываем чекбокс */
+        }
+
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+            display: none; /* По умолчанию скрываем на десктопе */
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .menu-button {
+                display: block; /* Показываем кнопку на мобильных */
+            }
+
+
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex; /* Показываем меню при нажатии */
             }
 
             .hero h1 {
