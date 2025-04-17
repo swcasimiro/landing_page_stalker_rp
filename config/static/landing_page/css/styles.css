@@ -875,6 +875,8 @@
     position: relative;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+
 }
 
 .slider-track {
@@ -890,6 +892,16 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+
+.news-card.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .news-card:hover {
@@ -984,3 +996,4 @@
     background-color: #3d5444;
     color: white;
 }
+
