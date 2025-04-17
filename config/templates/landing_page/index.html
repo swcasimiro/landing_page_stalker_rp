@@ -186,8 +186,6 @@
         </div>
 
         <br>
-        <br>
-
         <div class="news-slider">
         <div class="slider-container">
             <div class="slider-track">
@@ -253,6 +251,34 @@
 
     // Адаптация при изменении размера окна
     window.addEventListener('resize', updateSlider);
+});
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const newsCards = document.querySelectorAll('.news-card');
+
+    // Функция для проверки видимости элемента
+    function checkVisibility() {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150; // точка, с которой начинается анимация
+
+        newsCards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+
+            if (cardTop < windowHeight - revealPoint) {
+                card.classList.add('visible');
+            } else {
+                // Опционально: убрать класс при скролле вверх
+                // card.classList.remove('visible');
+            }
+        });
+    }
+
+    // Проверяем при загрузке
+    checkVisibility();
+
+    // И при скролле
+    window.addEventListener('scroll', checkVisibility);
 });
 </script>
 
